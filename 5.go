@@ -40,3 +40,18 @@ func problem5a(lines []string) {
 	}
 	fmt.Println(maxSeatID)
 }
+
+func problem5b(lines []string) {
+	const numIds = 1 << 10
+	seatIdsFound := make([]bool, numIds)
+
+	for _, pass := range ParseBoardingPasses(lines) {
+		seatIdsFound[pass.SeatID()] = true
+	}
+
+	for i, found := range seatIdsFound {
+		if !found && i > 0 && i < numIds-1 && seatIdsFound[i-1] && seatIdsFound[i+1] {
+			fmt.Println(i)
+		}
+	}
+}
