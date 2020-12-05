@@ -26,3 +26,13 @@ func countSlope(g grid, right, down int) (trees int) {
 func problem3a(lines []string) {
 	fmt.Println(countSlope(grid(lines), 3, 1))
 }
+
+func problem3b(lines []string) {
+	fmt.Println(1 *
+		countSlope(grid(lines), 1, 1) *
+		countSlope(grid(lines), 3, 1) *
+		countSlope(grid(lines), 5, 1) *
+		countSlope(grid(lines), 7, 1) *
+		countSlope(grid(lines), 1, 2),
+	)
+}
