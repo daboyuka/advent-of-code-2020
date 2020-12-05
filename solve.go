@@ -64,5 +64,7 @@ func main() {
 		problem5b(readlines(os.Stdin))
 	case "6a":
 		problem6a(readlinegroups(os.Stdin))
+	case "6b":
+		problem6b(readlinegroups(os.Stdin))
 	}
 }

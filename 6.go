@@ -14,7 +14,8 @@ func ParseCustomsForm(line string) (c customsForm) {
 	return c
 }
 
-func (c customsForm) Union(other customsForm) customsForm { return c | other }
+func (c customsForm) Union(other customsForm) customsForm     { return c | other }
+func (c customsForm) Intersect(other customsForm) customsForm { return c & other }
 
 func (c customsForm) QuestionCount() int { return bits.OnesCount(uint(c)) }
 
@@ -27,6 +28,20 @@ func problem6a(linegroups [][]string) {
 			unionForm = unionForm.Union(ParseCustomsForm(line))
 		}
 		questionCountTotal += unionForm.QuestionCount()
+	}
+
+	fmt.Println(questionCountTotal)
+}
+
+func problem6b(linegroups [][]string) {
+	questionCountTotal := 0
+
+	for _, lines := range linegroups {
+		intersectForm := ^customsForm(0) // full form
+		for _, line := range lines {
+			intersectForm = intersectForm.Intersect(ParseCustomsForm(line))
+		}
+		questionCountTotal += intersectForm.QuestionCount()
 	}
 
 	fmt.Println(questionCountTotal)
