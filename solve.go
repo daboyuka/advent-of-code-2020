@@ -30,5 +30,7 @@ func main() {
 		problem2a(readlines(os.Stdin))
 	case "2b":
 		problem2b(readlines(os.Stdin))
+	case "3a":
+		problem3a(readlines(os.Stdin))
 	}
 }
