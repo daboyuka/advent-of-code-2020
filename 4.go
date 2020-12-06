@@ -104,7 +104,6 @@ func problem4b(linegroups [][]string) {
 	valid, invalid := 0, 0
 
 	for _, p := range ParsePassports(linegroups) {
-		fmt.Println(p)
 		if p.IsCompleteAndValid() {
 			valid++
 		} else {
