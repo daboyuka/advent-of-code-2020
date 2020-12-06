@@ -20,6 +20,26 @@ func readlines(r io.Reader) (lines []string) {
 	}
 }
 
+func readlinegroups(r io.Reader) (linegroups [][]string) {
+	lines := readlines(r)
+
+	var curGroup []string
+	for _, line := range lines {
+		if line == "" {
+			if len(curGroup) > 0 {
+				linegroups = append(linegroups, curGroup)
+				curGroup = nil
+			}
+		} else {
+			curGroup = append(curGroup, line)
+		}
+	}
+	if len(curGroup) > 0 {
+		linegroups = append(linegroups, curGroup)
+	}
+	return linegroups
+}
+
 func main() {
 	switch os.Args[1] {
 	case "1a":
@@ -35,9 +55,9 @@ func main() {
 	case "3b":
 		problem3b(readlines(os.Stdin))
 	case "4a":
-		problem4a(readlines(os.Stdin))
+		problem4a(readlinegroups(os.Stdin))
 	case "4b":
-		problem4b(readlines(os.Stdin))
+		problem4b(readlinegroups(os.Stdin))
 	case "5a":
 		problem5a(readlines(os.Stdin))
 	case "5b":

@@ -75,28 +75,21 @@ func (p passport) ParseAndAddLine(line string) {
 	}
 }
 
-func ParsePassports(lines []string) (ps []passport) {
-	curP := make(passport)
-	for _, line := range lines {
-		if line == "" {
-			if len(curP) > 0 {
-				ps = append(ps, curP)
-				curP = make(passport)
-			}
-		} else {
+func ParsePassports(linegroups [][]string) (ps []passport) {
+	for _, lines := range linegroups {
+		curP := make(passport)
+		for _, line := range lines {
 			curP.ParseAndAddLine(line)
 		}
-	}
-	if len(curP) > 0 {
 		ps = append(ps, curP)
 	}
 	return ps
 }
 
-func problem4a(lines []string) {
+func problem4a(linegroups [][]string) {
 	valid, invalid := 0, 0
 
-	for _, p := range ParsePassports(lines) {
+	for _, p := range ParsePassports(linegroups) {
 		if p.IsComplete() {
 			valid++
 		} else {
@@ -107,10 +100,10 @@ func problem4a(lines []string) {
 	fmt.Println(valid, invalid)
 }
 
-func problem4b(lines []string) {
+func problem4b(linegroups [][]string) {
 	valid, invalid := 0, 0
 
-	for _, p := range ParsePassports(lines) {
+	for _, p := range ParsePassports(linegroups) {
 		fmt.Println(p)
 		if p.IsCompleteAndValid() {
 			valid++
