@@ -70,5 +70,9 @@ func main() {
 		problem7a(readlines(os.Stdin))
 	case "7b":
 		problem7b(readlines(os.Stdin))
+	case "8a":
+		problem8a(readlines(os.Stdin))
+	case "8b":
+		problem8b(readlines(os.Stdin))
 	}
 }
