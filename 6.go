@@ -1,4 +1,4 @@
-package main
+package aoc2020
 
 import (
 	"fmt"
@@ -19,7 +19,7 @@ func (c customsForm) Intersect(other customsForm) customsForm { return c & other
 
 func (c customsForm) QuestionCount() int { return bits.OnesCount(uint(c)) }
 
-func problem6a(linegroups [][]string) {
+func Problem6a(linegroups [][]string) {
 	questionCountTotal := 0
 
 	for _, lines := range linegroups {
@@ -33,7 +33,7 @@ func problem6a(linegroups [][]string) {
 	fmt.Println(questionCountTotal)
 }
 
-func problem6b(linegroups [][]string) {
+func Problem6b(linegroups [][]string) {
 	questionCountTotal := 0
 
 	for _, lines := range linegroups {

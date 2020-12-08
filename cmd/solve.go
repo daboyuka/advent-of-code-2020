@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"io"
 	"os"
+
+	"aoc2020"
 )
 
 func readlines(r io.Reader) (lines []string) {
@@ -43,36 +45,36 @@ func readlinegroups(r io.Reader) (linegroups [][]string) {
 func main() {
 	switch os.Args[1] {
 	case "1a":
-		problem1a(readlines(os.Stdin))
+		aoc2020.Problem1a(readlines(os.Stdin))
 	case "1b":
-		problem1b(readlines(os.Stdin))
+		aoc2020.Problem1b(readlines(os.Stdin))
 	case "2a":
-		problem2a(readlines(os.Stdin))
+		aoc2020.Problem2a(readlines(os.Stdin))
 	case "2b":
-		problem2b(readlines(os.Stdin))
+		aoc2020.Problem2b(readlines(os.Stdin))
 	case "3a":
-		problem3a(readlines(os.Stdin))
+		aoc2020.Problem3a(readlines(os.Stdin))
 	case "3b":
-		problem3b(readlines(os.Stdin))
+		aoc2020.Problem3b(readlines(os.Stdin))
 	case "4a":
-		problem4a(readlinegroups(os.Stdin))
+		aoc2020.Problem4a(readlinegroups(os.Stdin))
 	case "4b":
-		problem4b(readlinegroups(os.Stdin))
+		aoc2020.Problem4b(readlinegroups(os.Stdin))
 	case "5a":
-		problem5a(readlines(os.Stdin))
+		aoc2020.Problem5a(readlines(os.Stdin))
 	case "5b":
-		problem5b(readlines(os.Stdin))
+		aoc2020.Problem5b(readlines(os.Stdin))
 	case "6a":
-		problem6a(readlinegroups(os.Stdin))
+		aoc2020.Problem6a(readlinegroups(os.Stdin))
 	case "6b":
-		problem6b(readlinegroups(os.Stdin))
+		aoc2020.Problem6b(readlinegroups(os.Stdin))
 	case "7a":
-		problem7a(readlines(os.Stdin))
+		aoc2020.Problem7a(readlines(os.Stdin))
 	case "7b":
-		problem7b(readlines(os.Stdin))
+		aoc2020.Problem7b(readlines(os.Stdin))
 	case "8a":
-		problem8a(readlines(os.Stdin))
+		aoc2020.Problem8a(readlines(os.Stdin))
 	case "8b":
-		problem8b(readlines(os.Stdin))
+		aoc2020.Problem8b(readlines(os.Stdin))
 	}
 }

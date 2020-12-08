@@ -1,4 +1,4 @@
-package main
+package aoc2020
 
 import "fmt"
 
@@ -31,7 +31,7 @@ func ParseBoardingPasses(lines []string) (passes []boardingPass) {
 	return passes
 }
 
-func problem5a(lines []string) {
+func Problem5a(lines []string) {
 	maxSeatID := -1
 	for _, pass := range ParseBoardingPasses(lines) {
 		if seatID := pass.SeatID(); maxSeatID < seatID {
@@ -41,7 +41,7 @@ func problem5a(lines []string) {
 	fmt.Println(maxSeatID)
 }
 
-func problem5b(lines []string) {
+func Problem5b(lines []string) {
 	const numIds = 1 << 10
 	seatIdsFound := make([]bool, numIds)
 

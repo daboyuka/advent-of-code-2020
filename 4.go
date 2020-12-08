@@ -1,9 +1,11 @@
-package main
+package aoc2020
 
 import (
 	"fmt"
 	"regexp"
 	"strings"
+
+	. "aoc2020/helpers"
 )
 
 type passport map[string]string
@@ -28,13 +30,13 @@ func (p passport) IsComplete() bool {
 }
 
 func (p passport) checkByr() bool {
-	return between(atoiOrZero(p["byr"]), 1920, 2002)
+	return Between(AtoiOrZero(p["byr"]), 1920, 2002)
 }
 func (p passport) checkIyr() bool {
-	return between(atoiOrZero(p["iyr"]), 2010, 2020)
+	return Between(AtoiOrZero(p["iyr"]), 2010, 2020)
 }
 func (p passport) checkEyr() bool {
-	return between(atoiOrZero(p["eyr"]), 2020, 2030)
+	return Between(AtoiOrZero(p["eyr"]), 2020, 2030)
 }
 func (p passport) checkHgt() bool {
 	hgt := p["hgt"]
@@ -42,13 +44,13 @@ func (p passport) checkHgt() bool {
 		return false
 	}
 
-	hgtNum, hgtSuff := atoiOrZero(hgt[:len(hgt)-2]), hgt[len(hgt)-2:]
+	hgtNum, hgtSuff := AtoiOrZero(hgt[:len(hgt)-2]), hgt[len(hgt)-2:]
 
 	switch hgtSuff {
 	case "in":
-		return between(hgtNum, 59, 76)
+		return Between(hgtNum, 59, 76)
 	case "cm":
-		return between(hgtNum, 150, 193)
+		return Between(hgtNum, 150, 193)
 	default:
 		return false
 	}
@@ -86,7 +88,7 @@ func ParsePassports(linegroups [][]string) (ps []passport) {
 	return ps
 }
 
-func problem4a(linegroups [][]string) {
+func Problem4a(linegroups [][]string) {
 	valid, invalid := 0, 0
 
 	for _, p := range ParsePassports(linegroups) {
@@ -100,7 +102,7 @@ func problem4a(linegroups [][]string) {
 	fmt.Println(valid, invalid)
 }
 
-func problem4b(linegroups [][]string) {
+func Problem4b(linegroups [][]string) {
 	valid, invalid := 0, 0
 
 	for _, p := range ParsePassports(linegroups) {

@@ -1,8 +1,10 @@
-package main
+package aoc2020
 
 import (
 	"fmt"
 	"strings"
+
+	. "aoc2020/helpers"
 )
 
 type instruction struct {
@@ -19,7 +21,7 @@ func ParseProgram(lines []string) (instrs []instruction) {
 	for _, line := range lines {
 		spaceIdx := strings.Index(line, " ")
 		op := line[:spaceIdx]
-		amt := mustAtoi(line[spaceIdx+2:])
+		amt := MustAtoi(line[spaceIdx+2:])
 		if line[spaceIdx+1] == '-' {
 			amt *= -1
 		}
@@ -31,7 +33,7 @@ func ParseProgram(lines []string) (instrs []instruction) {
 
 }
 
-func problem8a(lines []string) {
+func Problem8a(lines []string) {
 	code := ParseProgram(lines)
 
 	instrsRun := map[int]bool{}
@@ -86,7 +88,7 @@ func runProgram(code []instruction) (int, bool) {
 	}
 }
 
-func problem8b(lines []string) {
+func Problem8b(lines []string) {
 	code := ParseProgram(lines)
 
 	for i, instr := range code {

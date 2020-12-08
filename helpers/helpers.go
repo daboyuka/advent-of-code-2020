@@ -1,8 +1,11 @@
-package main
+package helpers
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
-func mustAtoi(s string) int {
+func MustAtoi(s string) int {
 	x, err := strconv.Atoi(s)
 	if err != nil {
 		panic(err)
@@ -10,7 +13,7 @@ func mustAtoi(s string) int {
 	return x
 }
 
-func atoiOrZero(s string) int {
+func AtoiOrZero(s string) int {
 	x, err := strconv.Atoi(s)
 	if err != nil {
 		return 0
@@ -18,6 +21,6 @@ func atoiOrZero(s string) int {
 	return x
 }
 
-func between(x, low, high int) bool {
+func Between(x, low, high int) bool {
 	return x >= low && x <= high
 }

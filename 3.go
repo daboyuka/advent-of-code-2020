@@ -1,6 +1,8 @@
-package main
+package aoc2020
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type grid []string
 
@@ -23,11 +25,11 @@ func countSlope(g grid, right, down int) (trees int) {
 	}
 }
 
-func problem3a(lines []string) {
+func Problem3a(lines []string) {
 	fmt.Println(countSlope(grid(lines), 3, 1))
 }
 
-func problem3b(lines []string) {
+func Problem3b(lines []string) {
 	fmt.Println(1 *
 		countSlope(grid(lines), 1, 1) *
 		countSlope(grid(lines), 3, 1) *

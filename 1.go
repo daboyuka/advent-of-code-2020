@@ -1,11 +1,15 @@
-package main
+package aoc2020
 
-import "fmt"
+import (
+	"fmt"
 
-func problem1a(lines []string) {
+	. "aoc2020/helpers"
+)
+
+func Problem1a(lines []string) {
 	vals := make([]int, len(lines))
 	for i, line := range lines {
-		vals[i] = mustAtoi(line)
+		vals[i] = MustAtoi(line)
 	}
 
 	for _, a := range vals {
@@ -18,10 +22,10 @@ func problem1a(lines []string) {
 	}
 }
 
-func problem1b(lines []string) {
+func Problem1b(lines []string) {
 	vals := make([]int, len(lines))
 	for i, line := range lines {
-		vals[i] = mustAtoi(line)
+		vals[i] = MustAtoi(line)
 	}
 
 	for _, a := range vals {

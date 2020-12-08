@@ -1,8 +1,10 @@
-package main
+package aoc2020
 
 import (
 	"fmt"
 	"strings"
+
+	. "aoc2020/helpers"
 )
 
 type bagType string
@@ -34,7 +36,7 @@ func ParseBagRule(line string) (rule bagRule) {
 			break
 		}
 
-		num := mustAtoi(numStr)
+		num := MustAtoi(numStr)
 
 		containsType := contains[firstSpaceIdx+1:]
 		if num > 1 {
@@ -47,7 +49,7 @@ func ParseBagRule(line string) (rule bagRule) {
 	return rule
 }
 
-func problem7a(lines []string) {
+func Problem7a(lines []string) {
 	bmap := bagRulesMap{}
 	for _, line := range lines {
 		rule := ParseBagRule(line)
@@ -88,7 +90,7 @@ func problem7a(lines []string) {
 	fmt.Println(containsCount)
 }
 
-func problem7b(lines []string) {
+func Problem7b(lines []string) {
 	bmap := bagRulesMap{}
 	for _, line := range lines {
 		rule := ParseBagRule(line)
