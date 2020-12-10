@@ -30,13 +30,13 @@ func (p passport) IsComplete() bool {
 }
 
 func (p passport) checkByr() bool {
-	return Between(AtoiOrZero(p["byr"]), 1920, 2002)
+	return Between(AtoiSafe(p["byr"]), 1920, 2002)
 }
 func (p passport) checkIyr() bool {
-	return Between(AtoiOrZero(p["iyr"]), 2010, 2020)
+	return Between(AtoiSafe(p["iyr"]), 2010, 2020)
 }
 func (p passport) checkEyr() bool {
-	return Between(AtoiOrZero(p["eyr"]), 2020, 2030)
+	return Between(AtoiSafe(p["eyr"]), 2020, 2030)
 }
 func (p passport) checkHgt() bool {
 	hgt := p["hgt"]
@@ -44,7 +44,7 @@ func (p passport) checkHgt() bool {
 		return false
 	}
 
-	hgtNum, hgtSuff := AtoiOrZero(hgt[:len(hgt)-2]), hgt[len(hgt)-2:]
+	hgtNum, hgtSuff := AtoiSafe(hgt[:len(hgt)-2]), hgt[len(hgt)-2:]
 
 	switch hgtSuff {
 	case "in":

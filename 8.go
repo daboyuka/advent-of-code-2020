@@ -21,7 +21,7 @@ func ParseProgram(lines []string) (instrs []instruction) {
 	for _, line := range lines {
 		spaceIdx := strings.Index(line, " ")
 		op := line[:spaceIdx]
-		amt := MustAtoi(line[spaceIdx+2:])
+		amt := Atoi(line[spaceIdx+2:])
 		if line[spaceIdx+1] == '-' {
 			amt *= -1
 		}

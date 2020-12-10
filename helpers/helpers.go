@@ -5,7 +5,14 @@ import (
 	"strings"
 )
 
-func MustAtoi(s string) int {
+func IntLines(lines []string) (out []int) {
+	for _, line := range lines {
+		out = append(out, Atoi(line))
+	}
+	return out
+}
+
+func Atoi(s string) int {
 	x, err := strconv.Atoi(s)
 	if err != nil {
 		panic(err)
@@ -13,7 +20,7 @@ func MustAtoi(s string) int {
 	return x
 }
 
-func AtoiOrZero(s string) int {
+func AtoiSafe(s string) int {
 	x, err := strconv.Atoi(s)
 	if err != nil {
 		return 0
@@ -63,6 +70,13 @@ func Min(xs ...int) int {
 		}
 	}
 	return min
+}
+
+func Sum(xs ...int) (sum int) {
+	for _, x := range xs {
+		sum += x
+	}
+	return sum
 }
 
 // x in [min, max) or min or max

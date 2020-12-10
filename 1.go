@@ -9,7 +9,7 @@ import (
 func Problem1a(lines []string) {
 	vals := make([]int, len(lines))
 	for i, line := range lines {
-		vals[i] = MustAtoi(line)
+		vals[i] = Atoi(line)
 	}
 
 	for _, a := range vals {
@@ -25,7 +25,7 @@ func Problem1a(lines []string) {
 func Problem1b(lines []string) {
 	vals := make([]int, len(lines))
 	for i, line := range lines {
-		vals[i] = MustAtoi(line)
+		vals[i] = Atoi(line)
 	}
 
 	for _, a := range vals {

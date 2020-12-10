@@ -36,7 +36,7 @@ func ParseBagRule(line string) (rule bagRule) {
 			break
 		}
 
-		num := MustAtoi(numStr)
+		num := Atoi(numStr)
 
 		containsType := contains[firstSpaceIdx+1:]
 		if num > 1 {

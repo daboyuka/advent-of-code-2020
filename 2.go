@@ -18,7 +18,7 @@ func Problem2a(lines []string) {
 			panic(fmt.Errorf("wut %s", line))
 		}
 
-		from, to, char, password := MustAtoi(string(fields[1])), MustAtoi(fields[2]), fields[3], fields[4]
+		from, to, char, password := Atoi(string(fields[1])), Atoi(fields[2]), fields[3], fields[4]
 
 		reps := strings.Count(password, char)
 		if reps >= from && reps <= to {
@@ -39,7 +39,7 @@ func Problem2b(lines []string) {
 			panic(fmt.Errorf("wut %s", line))
 		}
 
-		at1, at2, char, password := MustAtoi(string(fields[1])), MustAtoi(fields[2]), fields[3][0], fields[4]
+		at1, at2, char, password := Atoi(string(fields[1])), Atoi(fields[2]), fields[3][0], fields[4]
 
 		matches := 0
 		for _, pos := range [...]int{at1 - 1, at2 - 1} {

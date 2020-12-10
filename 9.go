@@ -8,7 +8,7 @@ import (
 
 func parseLines(lines []string) (nums []int) {
 	for _, line := range lines {
-		nums = append(nums, helpers.MustAtoi(line))
+		nums = append(nums, helpers.Atoi(line))
 	}
 	return nums
 }

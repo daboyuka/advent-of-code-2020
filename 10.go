@@ -7,21 +7,9 @@ import (
 	. "aoc2020/helpers"
 )
 
-func ParseThingies(lines []string) (out []int) {
-	for _, line := range lines {
-		out = append(out, MustAtoi(line))
-	}
-	return out
-}
-
 func Problem10a(lines []string) {
-	jolts := ParseThingies(lines)
-	maxJ := 0
-	for _, x := range jolts {
-		if maxJ < x {
-			maxJ = x
-		}
-	}
+	jolts := IntLines(lines)
+	maxJ := Max(jolts...)
 	jolts = append(jolts, 0, maxJ+3)
 
 	num1, num3 := 0, 0
@@ -40,29 +28,15 @@ func Problem10a(lines []string) {
 }
 
 func Problem10b(lines []string) {
-	jolts := ParseThingies(lines)
-	maxJ := 0
-	for _, x := range jolts {
-		if maxJ < x {
-			maxJ = x
-		}
-	}
+	jolts := IntLines(lines)
+	maxJ := Max(jolts...)
 	jolts = append(jolts, 0, maxJ+3)
-
 	sort.Ints(jolts)
 
-	comboCounts := make([]uint64, maxJ+3+1)
+	comboCounts := make([]int, maxJ+3+1)
 	comboCounts[0] = 1
-	for _, jolt := range jolts {
-		if jolt >= 1 {
-			comboCounts[jolt] += comboCounts[jolt-1]
-		}
-		if jolt >= 2 {
-			comboCounts[jolt] += comboCounts[jolt-2]
-		}
-		if jolt >= 3 {
-			comboCounts[jolt] += comboCounts[jolt-3]
-		}
+	for _, jolt := range jolts[1:] {
+		comboCounts[jolt] = Sum(comboCounts[Max(jolt-3, 0):jolt]...)
 	}
 
 	fmt.Println(comboCounts[maxJ+3])
