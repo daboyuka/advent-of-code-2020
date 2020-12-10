@@ -44,3 +44,34 @@ func Split3(s, sep1, sep2 string) (a, b, c string) {
 	}
 	return a, b, c
 }
+
+func Max(xs ...int) int {
+	max := xs[0]
+	for _, x := range xs[1:] {
+		if max < x {
+			max = x
+		}
+	}
+	return max
+}
+
+func Min(xs ...int) int {
+	min := xs[0]
+	for _, x := range xs[1:] {
+		if min > x {
+			min = x
+		}
+	}
+	return min
+}
+
+// x in [min, max) or min or max
+func Clamp(x, min, max int) int {
+	if x < min {
+		return min
+	} else if x >= max {
+		return max - 1
+	} else {
+		return x
+	}
+}
