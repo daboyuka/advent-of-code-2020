@@ -96,5 +96,9 @@ func main() {
 		aoc2020.Problem13a(readlines(os.Stdin))
 	case "13b":
 		aoc2020.Problem13b(readlines(os.Stdin))
+	case "14a":
+		aoc2020.Problem14a(readlines(os.Stdin))
+	case "14b":
+		aoc2020.Problem14b(readlines(os.Stdin))
 	}
 }
