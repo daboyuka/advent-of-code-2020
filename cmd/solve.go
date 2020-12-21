@@ -100,5 +100,33 @@ func main() {
 		aoc2020.Problem14a(readlines(os.Stdin))
 	case "14b":
 		aoc2020.Problem14b(readlines(os.Stdin))
+	case "15a":
+		aoc2020.Problem15a(readlines(os.Stdin))
+	case "15b":
+		aoc2020.Problem15b(readlines(os.Stdin))
+	case "16a":
+		aoc2020.Problem16a(readlines(os.Stdin))
+	case "16b":
+		aoc2020.Problem16b(readlines(os.Stdin))
+	case "17a":
+		aoc2020.Problem17a(readlines(os.Stdin))
+	case "17b":
+		aoc2020.Problem17b(readlines(os.Stdin))
+	case "18a":
+		aoc2020.Problem18a(readlines(os.Stdin))
+	case "18b":
+		aoc2020.Problem18b(readlines(os.Stdin))
+	case "19a":
+		aoc2020.Problem19a(readlines(os.Stdin))
+	case "19b":
+		aoc2020.Problem19b(readlines(os.Stdin))
+	case "20a":
+		aoc2020.Problem20a(readlines(os.Stdin))
+	case "20b":
+		aoc2020.Problem14b(readlines(os.Stdin))
+	case "21a":
+		aoc2020.Problem21a(readlines(os.Stdin))
+	case "21b":
+		aoc2020.Problem21b(readlines(os.Stdin))
 	}
 }

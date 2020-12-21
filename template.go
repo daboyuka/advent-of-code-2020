@@ -6,10 +6,10 @@ import (
 	. "aoc2020/helpers"
 )
 
-func ProblemA(lines []string) {
+func Problema(lines []string) {
 
 }
 
-func ProblemB(lines []string) {
+func Problemb(lines []string) {
 
 }
