@@ -336,37 +336,37 @@ func Problem20b(linegroups [][]string) {
 	for last = range allTiles {
 	}
 
-	last2 := last.FlipEW().RotateLeft() // .FlipEW()
-	last = &last2
-	fmt.Println(last)
-
 	var monster = [3]tileEdge{
-		"                   #",
+		"                  # ",
 		"#    ##    ##    ###",
 		" #  #  #  #  #  #   ",
 	}
-	var monsterInv = [3]tileEdge{monster[2], monster[1], monster[0]}
 
-	monsters := 0
-	monsterPixels := map[[2]int]bool{}
-	for dir, lines := range last.Inner {
+	checkMonsters := func(lines []tileEdge) int {
+		monsters := 0
 		for rowIdx := 0; rowIdx < len(lines); rowIdx++ {
 			for colIdx := 0; colIdx < len(lines[rowIdx]); colIdx++ {
 				if MatchAt(lines, monster[:], rowIdx, colIdx) {
-					fmt.Println("monster at", dir, rowIdx, colIdx)
+					fmt.Println("monster at", rowIdx, colIdx)
 					monsters++
-					MaskToCoords(rowIdx, colIdx, monster[:], monsterPixels)
-				}
-				if MatchAt(lines, monsterInv[:], rowIdx, colIdx) {
-					fmt.Println("inv monster at", dir, rowIdx, colIdx)
-					monsters++
-					MaskToCoords(rowIdx, colIdx, monsterInv[:], monsterPixels)
 				}
 			}
 		}
+		return monsters
 	}
 
-	fmt.Println(monsters, CountLineHashes(last.Inner[0]), CountLineHashes(monster[:]),
-		CountLineHashes(last.Inner[0])-monsters*CountLineHashes(monster[:]),
-		CountLineHashes(last.Inner[0])-len(monsterPixels))
+	maxMonsters := Sum(
+		checkMonsters(last.Inner[0]),
+		checkMonsters(last.RotateLeft().Inner[0]),
+		checkMonsters(last.RotateLeft().RotateLeft().Inner[0]),
+		checkMonsters(last.RotateLeft().RotateLeft().RotateLeft().Inner[0]),
+		checkMonsters(last.FlipEW().Inner[0]),
+		checkMonsters(last.FlipEW().RotateLeft().Inner[0]),
+		checkMonsters(last.FlipEW().RotateLeft().RotateLeft().Inner[0]),
+		checkMonsters(last.FlipEW().RotateLeft().RotateLeft().RotateLeft().Inner[0]),
+	)
+
+	fmt.Println(maxMonsters, CountLineHashes(last.Inner[0]), CountLineHashes(monster[:]),
+		CountLineHashes(last.Inner[0])-maxMonsters*CountLineHashes(monster[:]),
+	)
 }
